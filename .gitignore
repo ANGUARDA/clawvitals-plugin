@@ -2,3 +2,8 @@ node_modules/
 dist/
 *.js.map
 .DS_Store
+tests/
+jest.config.cjs
+tsconfig.eslint.json
+package-lock.json
+library.v0.1.json
