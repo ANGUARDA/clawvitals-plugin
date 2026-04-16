@@ -1,0 +1,165 @@
+{
+  "id": "clawvitals",
+  "name": "ClawVitals",
+  "description": "Security vitals checker for OpenClaw, providing enhanced checks and functionality beyond the ClawVitals skill (https://clawhub.ai/bk-cm/clawvitals). Checks your installation for common misconfigurations and security issues, with scheduled scans, delta detection, regression alerts, and scan history. Full details: https://clawvitals.io/plugin",
+  "version": "1.0.0",
+  "permissions": {
+    "filesystem": [
+      "~/.openclaw/workspace/clawvitals/"
+    ],
+    "filesystemOptional": [
+      "~/.env",
+      "~/.bashrc",
+      "~/.zshrc",
+      "~/.bash_history",
+      "~/.zsh_history",
+      "~/.cloudflared/config.yml"
+    ],
+    "network": [
+      "https://telemetry.clawvitals.io/ping"
+    ],
+    "commands": [
+      "openclaw security audit --json",
+      "openclaw health --json",
+      "openclaw update status --json",
+      "openclaw --version",
+      "openclaw cron list",
+      "openclaw cron add",
+      "openclaw cron edit"
+    ],
+    "commandsOptional": [
+      "curl -s --max-time 5 http://localhost:11434/api/tags",
+      "lsof -i :11434",
+      "docker ps --format json",
+      "docker inspect",
+      "fdesetup status",
+      "lsblk -f",
+      "softwareupdate --list",
+      "ss -tlnp",
+      "netstat -tlnp"
+    ]
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "telemetry": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Send anonymous scan summaries to telemetry.clawvitals.io. Enabled by default \u2014 this powers the dashboard. Disable with `clawvitals telemetry off`. See SECURITY.md for full details of what is sent.",
+            "default": true
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Telemetry endpoint URL. Override to point at a self-hosted instance.",
+            "default": "https://telemetry.clawvitals.io/ping"
+          },
+          "alias": {
+            "type": "string",
+            "description": "Human-readable name for this installation on the clawvitals.io/dashboard. Used instead of the raw install UUID. Useful for fleet management (e.g. 'prod-server-1', 'dev-laptop'). Max 64 chars. Only sent in telemetry if explicitly set.",
+            "maxLength": 64
+          }
+        }
+      },
+      "schedule": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Enable recurring scans.",
+            "default": true
+          },
+          "cron": {
+            "type": "string",
+            "description": "Cron expression for recurring scans.",
+            "default": "0 9 * * *"
+          }
+        }
+      },
+      "alerts": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "on_regression": {
+            "type": "boolean",
+            "description": "Alert when score drops or a new FAIL is detected since last scan.",
+            "default": true
+          },
+          "on_new_critical": {
+            "type": "boolean",
+            "description": "Alert immediately when a critical-severity finding appears.",
+            "default": true
+          },
+          "threshold": {
+            "type": "string",
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low",
+              "info"
+            ],
+            "description": "Minimum severity level to trigger alerts.",
+            "default": "high"
+          }
+        }
+      },
+      "controls": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": [
+              "standard",
+              "expanded"
+            ],
+            "description": "Control set to use. 'standard' (default) runs only OpenClaw-native checks using the OpenClaw CLI. 'expanded' adds system-level checks \u2014 Ollama exposure, open ports, Docker container privileges, disk encryption, OS updates, shell history secrets, and Cloudflare tunnel auth. Expanded mode requires additional filesystem and shell access (see SECURITY.md).",
+            "default": "standard"
+          }
+        }
+      },
+      "retention_days": {
+        "type": "integer",
+        "description": "Number of days to retain local scan history.",
+        "default": 90,
+        "minimum": 7,
+        "maximum": 365
+      }
+    }
+  },
+  "uiHints": {
+    "telemetry.alias": {
+      "label": "Installation alias",
+      "placeholder": "e.g. prod-server-1",
+      "hint": "Shown on clawvitals.io/dashboard instead of the raw install ID"
+    },
+    "telemetry.enabled": {
+      "label": "Telemetry",
+      "hint": "Powers the dashboard. Anonymous scan summaries only \u2014 no config, credentials, or finding details. See SECURITY.md."
+    },
+    "controls.mode": {
+      "label": "Control set",
+      "hint": "'standard' uses only OpenClaw CLI \u2014 no extra permissions needed. 'expanded' adds system-level checks (Ollama, ports, Docker, disk encryption, OS updates, secrets in shell history)."
+    }
+  },
+  "requires": {
+    "bins": [
+      "openclaw"
+    ],
+    "binsOptional": [
+      "lsof",
+      "ss",
+      "netstat",
+      "docker",
+      "fdesetup",
+      "lsblk",
+      "softwareupdate",
+      "curl"
+    ]
+  }
+}
