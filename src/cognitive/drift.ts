@@ -1,5 +1,5 @@
-import * as fs from "node:fs";
-import * as path from "node:path";
+import * as fs from 'fs';
+import * as path from 'path';
 import type { CognitiveInventory } from "./inventory.js";
 
 export interface BaselineEntry { name: string; sha256: string; size: number; approved_at: string; approved_by: string; }

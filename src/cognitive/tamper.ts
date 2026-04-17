@@ -7,7 +7,7 @@
  * SECURITY: Findings never include matched content to avoid amplifying injections.
  */
 
-import * as fs from "node:fs";
+import * as fs from 'fs';
 import type { CognitiveFile } from "./inventory.js";
 
 export type PatternType =
