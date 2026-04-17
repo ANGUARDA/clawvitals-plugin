@@ -106,9 +106,6 @@ The following tools are invoked by the agent. You can trigger them via natural l
 | `clawvitals_telemetry` | Enable or disable telemetry |
 | `clawvitals_set_schedule` | Configure recurring scan cadence |
 | `clawvitals_status` | Show current status |
-| `clawvitals_trial_status` | Show trial status and upgrade options |
-| `clawvitals_upgrade` | Upgrade to a paid plan |
-| `clawvitals_configure_webhook` | Set up a webhook for alert delivery |
 | `clawvitals_exclude` | Suppress a finding with a reason |
 | `clawvitals_list_exclusions` | List all active exclusions |
 | `clawvitals_remove_exclusion` | Remove an exclusion |
@@ -198,14 +195,12 @@ When a scheduled scan detects new Critical or High findings that were not presen
 - Medium, Low, and Info findings are in the full report but do not trigger an alert on their own.
 - If no new Critical/High findings, scheduled scans run **silently**.
 - On the **first ever scan** (no prior baseline), all findings are treated as new and the full report is sent.
-- To route alerts to a webhook, use the `clawvitals_configure_webhook` agent tool.
 
 ### Delivery channels
 
 | Channel | Configured by |
 |---|---|
 | OpenClaw messaging surface (default) | Automatic |
-| Webhook (Slack, Discord, Teams, etc.) | `clawvitals_configure_webhook` agent tool |
 | Email digest | Coming soon |
 
 ---
