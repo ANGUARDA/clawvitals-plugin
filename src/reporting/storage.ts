@@ -7,8 +7,8 @@
  * - File permissions set to 600 for security
  */
 
-import * as fs from 'node:fs';
-import * as path from 'node:path';
+import * as fs from 'fs';
+import * as path from 'path';
 import type { RunReport, RunMeta, LastSuccessPointer } from '../types';
 import {
   WORKSPACE_DIR,

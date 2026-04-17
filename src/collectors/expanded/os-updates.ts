@@ -7,8 +7,8 @@
  */
 
 import { runExpanded } from './runner';
-import * as fs from 'node:fs';
-import * as os from 'node:os';
+import * as fs from 'fs';
+import * as os from 'os';
 import type { OsUpdatesResult } from '../../types';
 
 /** Check macOS auto-update status via softwareupdate. */

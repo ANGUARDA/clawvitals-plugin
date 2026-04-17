@@ -9,7 +9,7 @@
  * child_process access required.
  */
 
-import { runPluginCommandWithTimeout } from '@openclaw/plugin-sdk';
+import { runPluginCommandWithTimeout } from 'openclaw/plugin-sdk/run-command';
 import { ALLOWED_BINARIES, CLI_TIMEOUT_MS } from './constants';
 
 /** Thrown when a CLI command exceeds its timeout */

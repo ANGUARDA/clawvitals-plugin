@@ -5,9 +5,9 @@
  * Files are capped at {@link MAX_LINES} lines to avoid OOM on unexpectedly large files.
  */
 
-import * as fs from 'node:fs';
-import * as os from 'node:os';
-import * as path from 'node:path';
+import * as fs from 'fs';
+import * as os from 'os';
+import * as path from 'path';
 import type { SecretsFilesResult, SecretFinding } from '../../types';
 
 /** Maximum number of lines to scan per file to prevent memory exhaustion. */

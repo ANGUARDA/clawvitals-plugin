@@ -6,10 +6,10 @@
  * scheduled scans.
  */
 
-import * as fs from 'node:fs';
-import * as path from 'node:path';
+import * as fs from 'fs';
+import * as path from 'path';
 import { v4 as uuidv4 } from 'uuid';
-import { withFileLock } from '@openclaw/plugin-sdk';
+import { withFileLock } from 'openclaw/plugin-sdk/infra-runtime';
 import type { CollectorOrchestrator } from './collectors';
 import type { ControlEvaluator } from './controls/evaluator';
 import type { Scorer } from './scoring';

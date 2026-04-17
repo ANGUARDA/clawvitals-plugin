@@ -5,9 +5,9 @@
  * Files are capped at {@link MAX_LINES} lines to avoid OOM on large history files.
  */
 
-import * as fs from 'node:fs';
-import * as os from 'node:os';
-import * as path from 'node:path';
+import * as fs from 'fs';
+import * as os from 'os';
+import * as path from 'path';
 import type { SecretsHistoryResult, SecretFinding } from '../../types';
 import { SECRET_PATTERNS } from './secrets-files';
 

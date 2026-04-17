@@ -7,7 +7,7 @@
  */
 
 import { runExpanded } from './runner';
-import * as os from 'node:os';
+import * as os from 'os';
 import type { DiskEncryptionResult } from '../../types';
 
 /** Check macOS FileVault status. */

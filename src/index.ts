@@ -23,10 +23,10 @@
  *   fleet management on the dashboard. NEVER derived from machine identifiers.
  */
 
-import * as fs from 'node:fs';
-import * as path from 'node:path';
-import * as os from 'node:os';
-import { randomUUID } from 'node:crypto';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as os from 'os';
+import { randomUUID } from 'crypto';
 import { Type } from '@sinclair/typebox';
 import type { Static, TSchema } from '@sinclair/typebox';
 import type { OpenClawPluginApi } from 'openclaw/plugin-sdk/core';

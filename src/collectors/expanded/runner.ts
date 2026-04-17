@@ -16,7 +16,7 @@
  * listed there so users can review what system commands expanded mode will run.
  */
 
-import { execSync } from 'node:child_process';
+import { execSync } from 'child_process';
 
 /** Default timeout for expanded system commands (ms) */
 const EXPANDED_TIMEOUT_MS = 5000;
