@@ -36,13 +36,18 @@ The **plugin** is the upgrade path. It adds everything the skill deliberately om
 | Scan and score | ✅ | ✅ |
 | Remediation steps | ✅ | ✅ |
 | Extended controls | ✅ | ✅ |
-| Scan history and delta detection | ❌ | ✅ |
-| Recurring scheduled scans | ❌ | ✅ |
+| Scan history | ❌ | ✅ |
+| Delta detection | ❌ | ✅ |
+| Scheduled recurring scans | ❌ | ✅ |
 | Regression and critical alerts | ❌ | ✅ |
 | Exclusion management | ❌ | ✅ |
+| Expanded system-level controls | ❌ | ✅ |
+| Agent config file inventory (SHA256 hashes) | ❌ | ✅ |
+| Agent config drift detection | ❌ | ✅ |
+| Agent config tamper detection (prompt injection scan) | ❌ | ✅ |
+| Export scan reports | ❌ | ✅ |
+| Fleet management | ❌ | ✅ |
 | Posture trend dashboard | ❌ | ✅ |
-| Fleet management (alias) | ❌ | ✅ |
-| Config tamper detection | ❌ | ✅ |
 | Telemetry | none | **on by default (opt-out)** |
 
 ---
