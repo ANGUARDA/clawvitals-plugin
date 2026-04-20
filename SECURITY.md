@@ -12,8 +12,8 @@ The plugin sends a single anonymous HTTP GET ping to `telemetry.clawvitals.io/pi
 
 | Field | Description |
 |---|---|
-| `v` | Plugin version (e.g. `"0.1.0"`) |
-| `lv` | Control library version (e.g. `"0.1.0"`) |
+| `v` | Plugin version |
+| `lv` | Control library version |
 | `s` | Numeric score 0–100 |
 | `b` | Score band (`"green"` / `"amber"` / `"red"`) |
 | `sf` | Count of FAIL findings |
@@ -89,9 +89,11 @@ All commands are read-only. No system configuration is modified.
 
 ## Autonomous actions
 
-The plugin runs OpenClaw cron commands (`openclaw cron add/edit`) autonomously when a schedule is configured. These commands only affect the OpenClaw cron schedule — they do not modify system configuration, install software, or change files outside the workspace.
+Scheduled scans are **disabled by default**. The plugin does not add any cron entries or run autonomously until you explicitly enable a schedule using the `clawvitals_set_schedule` tool or by setting `schedule.enabled: true` in config.
 
-Autonomous scan execution (scheduled scans) can be disabled by setting schedule to manual:
+When a schedule is enabled, the plugin runs `openclaw cron add/edit` to register scans. These commands only affect the OpenClaw cron schedule — they do not modify system configuration, install software, or change files outside the workspace.
+
+To disable scheduling after enabling it:
 ```
 clawvitals set schedule none
 ```

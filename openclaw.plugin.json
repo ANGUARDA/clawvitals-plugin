@@ -71,8 +71,8 @@
         "properties": {
           "enabled": {
             "type": "boolean",
-            "description": "Enable recurring scans.",
-            "default": true
+            "description": "Enable recurring scans. Disabled by default — use clawvitals_set_schedule to opt in.",
+            "default": false
           },
           "cron": {
             "type": "string",
