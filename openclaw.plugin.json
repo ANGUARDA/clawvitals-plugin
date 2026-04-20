@@ -1,7 +1,7 @@
 {
   "id": "clawvitals",
   "name": "ClawVitals",
-  "description": "Security vitals checker for OpenClaw, providing enhanced checks and functionality beyond the ClawVitals skill (https://clawhub.ai/bk-cm/clawvitals). Checks your installation for common misconfigurations and security issues, with scheduled scans, delta detection, regression alerts, and scan history. Full details: https://clawvitals.io/plugin",
+  "description": "Security vitals checker for OpenClaw, providing enhanced checks and functionality beyond the ClawVitals skill (https://clawhub.ai/bk-cm/clawvitals). Checks your installation for common misconfigurations and security issues, with scheduled scans, delta detection, regression alerts, and scan history. All file access is read-only; no file contents are ever transmitted — telemetry is limited to numeric pass/fail counts and a random install UUID. Expanded mode accesses additional system files only to compute local findings; results are summarised as counts before any network call. Full details: https://clawvitals.io/plugin",
   "version": "1.0.0",
   "permissions": {
     "filesystem": [
@@ -15,6 +15,7 @@
       "~/.zsh_history",
       "~/.cloudflared/config.yml"
     ],
+    "filesystemOptionalPurpose": "Expanded mode only (opt-in via controls.mode=expanded or --expanded flag). Files are opened read-only to compute local findings: ~/.env and shell rc files are scanned for secret patterns (counts only); shell history files are scanned for plaintext credential patterns (counts only); ~/.cloudflared/config.yml is checked for tunnel auth configuration. No file contents, secret values, or path names are included in telemetry or transmitted over the network. These files are never written to.",
     "network": [
       "https://telemetry.clawvitals.io/ping"
     ],
@@ -118,7 +119,7 @@
               "standard",
               "expanded"
             ],
-            "description": "Control set to use. 'standard' (default) runs only OpenClaw-native checks using the OpenClaw CLI. 'expanded' adds system-level checks \u2014 Ollama exposure, open ports, Docker container privileges, disk encryption, OS updates, shell history secrets, and Cloudflare tunnel auth. Expanded mode requires additional filesystem and shell access (see SECURITY.md).",
+            "description": "Control set to use. 'standard' (default) runs only OpenClaw-native checks using the OpenClaw CLI — no additional filesystem or shell access required. 'expanded' adds system-level checks: Ollama exposure, open ports, Docker container privileges, disk encryption, OS updates, shell history secrets, and Cloudflare tunnel auth. Expanded mode accesses additional files read-only (see filesystemOptional); no file contents are transmitted — only numeric findings counts are included in telemetry.",
             "default": "standard"
           }
         }
