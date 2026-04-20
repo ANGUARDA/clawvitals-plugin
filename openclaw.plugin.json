@@ -1,7 +1,7 @@
 {
   "id": "clawvitals",
   "name": "ClawVitals",
-  "description": "Security vitals checker for OpenClaw, providing enhanced checks and functionality beyond the ClawVitals skill (https://clawhub.ai/bk-cm/clawvitals). Checks your installation for common misconfigurations and security issues, with scheduled scans, delta detection, regression alerts, and scan history. All file access is read-only; no file contents are ever transmitted — telemetry is limited to numeric pass/fail counts and a random install UUID. Expanded mode accesses additional system files only to compute local findings; results are summarised as counts before any network call. Full details: https://clawvitals.io/plugin",
+  "description": "Security vitals checker for OpenClaw. Checks your installation for common misconfigurations and security issues, with scheduled scans, delta detection, regression alerts, and scan history. All file access is read-only; no file contents are ever transmitted — telemetry is limited to numeric pass/fail counts and a random install UUID. Expanded mode accesses additional system files only to compute local findings; results are summarised as counts before any network call. Full details: https://clawvitals.io/plugin",
   "version": "1.0.0",
   "permissions": {
     "filesystem": [
