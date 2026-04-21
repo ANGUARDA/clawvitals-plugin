@@ -1,0 +1,1 @@
+{"version":3,"file":"export.d.ts","sourceRoot":"","sources":["../../src/cognitive/export.ts"],"names":[],"mappings":"AAGA,MAAM,WAAW,YAAY;IAC3B,KAAK,EAAE,OAAO,CAAC;IACf,OAAO,CAAC,EAAE,MAAM,CAAC;IACjB,IAAI,CAAC,EAAE,MAAM,CAAC;IACd,OAAO,CAAC,EAAE,MAAM,CAAC;CAClB;AAID,wBAAgB,eAAe,CAAC,YAAY,EAAE,MAAM,EAAE,MAAM,GAAE,UAAU,GAAG,MAAmB,GAAG,YAAY,CA2B5G"}

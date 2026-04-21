@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../src/collectors/index.ts"],"names":[],"mappings":"AAAA;;;;;;GAMG;AAEH,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,eAAe,CAAC;AAC/C,OAAO,KAAK,EAAE,eAAe,EAAE,MAAM,UAAU,CAAC;AAOhD;;;;GAIG;AACH,qBAAa,qBAAqB;IACpB,OAAO,CAAC,QAAQ,CAAC,GAAG;gBAAH,GAAG,EAAE,SAAS;IAE3C;;;;OAIG;IACG,OAAO,IAAI,OAAO,CAAC,eAAe,CAAC;CA4C1C"}

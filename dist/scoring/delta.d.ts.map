@@ -1,0 +1,1 @@
+{"version":3,"file":"delta.d.ts","sourceRoot":"","sources":["../../src/scoring/delta.ts"],"names":[],"mappings":"AAAA;;;;;;;GAOG;AAEH,OAAO,KAAK,EAAE,SAAS,EAAE,WAAW,EAAqB,MAAM,UAAU,CAAC;AAE1E;;;;;GAKG;AACH,qBAAa,aAAa;IACxB;;;;;;OAMG;IACH,MAAM,CAAC,OAAO,EAAE,SAAS,EAAE,QAAQ,EAAE,SAAS,GAAG,IAAI,GAAG,WAAW;IA+DnE;;;;OAIG;IACH,OAAO,CAAC,iBAAiB;CAkB1B"}
